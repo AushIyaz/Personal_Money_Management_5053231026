@@ -68,8 +68,14 @@ function tambahTransaksi(e) {
     const kat = document.getElementById("kategori-amplop").value;
     const nom = parseFloat(document.getElementById("nominal").value);
     const cat = document.getElementById("catatan").value;
+    const err = document.getElementById("err-msg");
 
-    if (!tgl || !jns || isNaN(nom)) return;
+    if (!tgl || !jns || isNaN(nom) || nom <= 0) {
+        err.innerText =
+        "Validasi Gagal: Pastikan tanggal terisi, jenis dipilih, dan nominal lebih besar dari 0!";
+        return;
+    }
+    err.innerText = "";
 
     transaksi.unshift({
         id: Date.now(),
@@ -81,12 +87,24 @@ function tambahTransaksi(e) {
     });
     localStorage.setItem("transaksi", JSON.stringify(transaksi));
     renderDaftar();
+    renderAmplop();
+    hitungRingkasan();
     e.target.reset();
 }
 function renderDaftar() {
-    const list = document.getElementById("transaction-list");
-    list.innerHTML = "";
-    transaksi.forEach((t) => {
+        const list = document.getElementById("transaction-list");
+        const keyword = document.getElementById("search")
+        ? document.getElementById("search").value.toLowerCase()
+        : "";
+        list.innerHTML = "";
+
+        let filtered = transaksi.filter(
+        (t) =>
+            t.catatan.toLowerCase().includes(keyword) ||
+            t.kategori.toLowerCase().includes(keyword),
+        );
+
+        filtered.forEach((t) => {
         let item = document.createElement("div");
         item.className = "transaction-item";
         item.innerHTML = `
@@ -99,7 +117,7 @@ function renderDaftar() {
                 </div>
             `;
         list.appendChild(item);
-    });
+        });
 }
 function hapus(id) {
     if (confirm("Hapus transaksi ini?")) {
