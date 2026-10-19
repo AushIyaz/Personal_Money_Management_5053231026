@@ -1,0 +1,89 @@
+body { 
+    font-family: Arial, sans-serif; 
+    background: #f8fafc; 
+    padding: 20px; 
+    color: #1e293b; 
+}
+
+.container { 
+    max-width: 700px; 
+    margin: 0 auto; 
+}
+
+.card, .form-section, .list-section, .persona-box { 
+    background: #fff; 
+    padding: 15px; 
+    border-radius: 8px; 
+    margin-bottom: 15px; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
+}
+
+.form-group { 
+    margin-bottom: 10px; 
+}
+
+.form-group label { 
+    display: block; 
+    font-weight: bold; 
+    font-size: 13px; 
+    margin-bottom: 3px; 
+}
+
+.form-group input, .form-group select { 
+    width: 100%; 
+    padding: 8px; 
+    border: 1px solid #cbd5e1; 
+    border-radius: 4px; 
+    font-size: 14px;
+    color: #1e293b;
+}
+
+button { 
+    background: #0284c7; 
+    color: #fff; 
+    border: none; 
+    padding: 9px 12px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    width: 100%; 
+    font-weight: bold; 
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.transaction-item { 
+    display: flex; 
+    justify-content: space-between; 
+    padding: 8px 0; 
+    border-bottom: 1px solid #e2e8f0; 
+    align-items: center; 
+    font-size: 13px; 
+}
+
+.btn-hapus { 
+    background: #dc2626; 
+    width: auto; 
+    padding: 4px 8px; 
+    font-size: 12px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    color: #fff; 
+    border: none; 
+    font-weight: bold; 
+}
+
+.amplop-grid { 
+    display: grid; 
+    grid-template-columns: 
+    repeat(3, 1fr); 
+    column-gap: 8px; 
+    margin-top: 8px; 
+}
+
+.amplop-card { 
+    background: #f1f5f9; 
+    padding: 8px; 
+    border-radius: 4px; 
+    text-align: center; 
+    font-size: 13px; 
+}

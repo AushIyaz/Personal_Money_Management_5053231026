@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="id"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Money Management — IRT</title>
+    <link rel="stylesheet" href="style.css"></head><body>
+    <div class="container">
+        <header>
+            <h1>Personal Money Management</h1>
+            <p>Persona: Ibu Rumah Tangga (Sistem Amplop)</p>
+        </header>
+
+        <section class="persona-box">
+            <h2>Manajemen Pos Amplop</h2>
+            <div id="amplop-container" class="amplop-grid"></div>
+        </section>
+
+        <section class="form-section">
+            <h2>Tambah Transaksi</h2>
+            <form id="transaction-form">
+                <div class="form-group">
+                    <label>Tanggal</label>
+                    <input type="date" id="tanggal" required>
+                </div>
+                <div class="form-group">
+                    <label>Jenis</label>
+                    <select id="jenis" required>
+                        <option value="">Pilih</option>
+                        <option value="pemasukan">Pemasukan</option>
+                        <option value="pengeluaran">Pengeluaran</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Amplop Terkait</label>
+                    <select id="kategori-amplop">
+                        <option value="Belanja Dapur">Belanja Dapur</option>
+                        <option value="Listrik & Air">Listrik & Air</option>
+                        <option value="Kebutuhan Anak">Kebutuhan Anak</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Nominal (Rp)</label>
+                    <input type="number" id="nominal" required>
+                </div>
+                <div class="form-group">
+                    <label>Catatan</label>
+                    <input type="text" id="catatan">
+                </div>
+                <button type="submit">Simpan Transaksi</button>
+            </form>
+        </section>
+
+        <section class="list-section">
+            <h2>Daftar Transaksi</h2>
+            <div id="transaction-list"></div>
+        </section>
+    </div>
+    <script src="app.js"></script></body></html>
