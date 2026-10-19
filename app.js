@@ -28,6 +28,39 @@ function renderAmplop() {
         container.appendChild(div);
     }
 }
+function renderAmplop() {
+    const container = document.getElementById('amplop-container');
+    container.innerHTML = '';
+    
+    let terpakai = {};
+    transaksi.forEach(t => {
+        if (t.jenis === 'pengeluaran') {
+            terpakai[t.kategori] = (terpakai[t.kategori] || 0) + t.nominal;
+        }
+    });
+
+    for (let pos in amplopData) {
+        let sisa = amplopData[pos] - (terpakai[pos] || 0);
+        let isHabis = sisa <= 0;
+        let div = document.createElement('div');
+        div.className = `amplop-card ${isHabis ? 'habis' : ''}`;
+        div.style.background = isHabis ? '#fef2f2' : '#f1f5f9';
+        div.innerHTML = `<strong>${pos}</strong><br>Sisa: ${formatRupiah(sisa)} ${isHabis ? '<br><small style="color:red">[HABIS]</small>' : ''}`;
+        container.appendChild(div);
+    }
+}
+
+function hitungRingkasan() {
+    let masuk = 0, keluar = 0;
+    transaksi.forEach(t => {
+        if (t.jenis === 'pemasukan') masuk += t.nominal;
+        if (t.jenis === 'pengeluaran') keluar += t.nominal;
+    });
+    document.getElementById('tot-masuk').innerText = formatRupiah(masuk);
+    document.getElementById('tot-keluar').innerText = formatRupiah(keluar);
+    document.getElementById('tot-saldo').innerText = formatRupiah(masuk - keluar);
+}
+
 function tambahTransaksi(e) {
     e.preventDefault();
     const tgl = document.getElementById("tanggal").value;

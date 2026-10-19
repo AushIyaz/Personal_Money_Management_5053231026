@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body { 
     font-family: Arial, sans-serif; 
     background: #f8fafc; 
@@ -10,7 +16,10 @@ body {
     margin: 0 auto; 
 }
 
-.card, .form-section, .list-section, .persona-box { 
+.card, 
+.form-section, 
+.list-section, 
+.persona-box { 
     background: #fff; 
     padding: 15px; 
     border-radius: 8px; 
@@ -29,13 +38,13 @@ body {
     margin-bottom: 3px; 
 }
 
-.form-group input, .form-group select { 
-    width: 100%; 
-    padding: 8px; 
-    border: 1px solid #cbd5e1; 
-    border-radius: 4px; 
-    font-size: 14px;
-    color: #1e293b;
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    box-sizing: border-box; /* Pastikan padding dan border ikut dihitung dalam lebar 100% */
 }
 
 button { 

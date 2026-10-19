@@ -1,13 +1,25 @@
-<!DOCTYPE html><html lang="id"><head>
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Money Management — IRT</title>
-    <link rel="stylesheet" href="style.css"></head><body>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
     <div class="container">
         <header>
             <h1>Personal Money Management</h1>
             <p>Persona: Ibu Rumah Tangga (Sistem Amplop)</p>
         </header>
+
+        <section class="dashboard" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 15px;">
+            <div class="card"><h3>Pemasukan</h3><p id="tot-masuk" style="color:#16a34a; font-weight:bold;">Rp 0</p></div>
+            <div class="card"><h3>Pengeluaran</h3><p id="tot-keluar" style="color:#dc2626; font-weight:bold;">Rp 0</p></div>
+            <div class="card"><h3>Saldo</h3><p id="tot-saldo" style="font-weight:bold;">Rp 0</p></div>
+        </section>
 
         <section class="persona-box">
             <h2>Manajemen Pos Amplop</h2>
@@ -54,4 +66,6 @@
             <div id="transaction-list"></div>
         </section>
     </div>
-    <script src="app.js"></script></body></html>
+    <script src="app.js"></script>
+</body>
+</html>
